@@ -11,3 +11,8 @@
   "Edit the user-init-file in another window"
   (interactive)
   (find-file-other-window user-init-file))
+
+;; Balance windows if helm or magit help buffers aren't in focus
+(defun auto-balance-windows ()
+  (if (not (active-minibuffer-window))
+      (balance-windows)))
