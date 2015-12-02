@@ -25,6 +25,9 @@
 (setq helm-split-window-in-side-p t)
 (setq helm-autoresize-max-height 40)
 (setq helm-autoresize-min-height 25)
+
+;; Enable helm before enabling autoresize mode
+(helm-mode 1)
 (helm-autoresize-mode 1)
 
 ;; Install global key bindings
