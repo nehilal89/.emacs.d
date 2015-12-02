@@ -6,16 +6,13 @@
 ;; Install all packages using package.el
 (require 'package)
 (require 'cl)
-(package-initialize)
 
 ;; List the neccessary packages
-(setq package-list '(helm dash magit))
+(setq package-list '(dash helm magit))
 
-;; List of all repositories to fetch from
-(setq package-archives '(("elpa" . "http://tromey.com/elpa/")
-                         ("gnu" . "http://elpa.gnu.org/packages/")
-			 ("melpa" . "http://melpa/org/packages")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")))
+;; Add melpa and initialze package repositories
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
 
 ;; Returns true if at least one item in package-list isn't installed
 (defun my-packages-installed-p ()
@@ -28,7 +25,7 @@
   ;; check for new packages (package versions)
   (package-refresh-contents)
   ;; install the missing packages
-  (dolist (p my-packages)
+  (dolist (p package-list)
     (when (not (package-installed-p p))
       (package-install p))))
 
