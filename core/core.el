@@ -10,14 +10,6 @@
 ;; Enable syntax highlighting with dash functions
 (eval-after-load "dash" '(dash-enable-font-lock))
 
-;; Start fullscreen (cross-platform)
-(add-hook 'window-setup-hook 'toggle-frame-fullscreen t)
-
-;; Auto load personal emacs files if personal folder exists
-(if (file-accessible-directory-p "~/.emacs.d/personal")
-    (dolist (script (-filter 'is-el-script (directory-files "~/.emacs.d/personal" t)))
-      (load script)))
-
 ;; Temporary -- Remove default backup file ability
 (setq make-backup-files nil)
 
@@ -40,3 +32,9 @@
 
 ;; Install custom hooks
 (add-hook 'window-configuration-change-hook 'auto-balance-windows)
+(add-hook 'window-setup-hook 'toggle-frame-fullscreen t) ;; Start fullscreen
+
+;; Finally.. auto load personal emacs files if personal folder exists
+(if (file-accessible-directory-p "~/.emacs.d/personal")
+    (-map (lambda (s) (load s))
+	  (-filter 'is-el-script (directory-files "~/.emacs.d/personal" t))))
