@@ -1,12 +1,12 @@
-;;; package --- Summary
-;;; Commentary:
-;;; Code:
+;; cosmetic-settings.el
+;; Robert Blafford
+;; Description: The way my editor should look and feel
 
-;;make sure ansi colour character escapes are honoured
+;; Honour ansi colour character escapes
 (require 'ansi-color)
 (ansi-color-for-comint-mode-on)
 
-;;;set font
+;; Font size and type
 (when (window-system)
   (set-frame-font "Source Code Pro")
   (set-face-font 'default "Source Code Pro")
@@ -17,13 +17,13 @@
                       )
 )
 
-;;set cursor colour ; load both
-(set-cursor-color "#ffeb8e")
+;; Cursor settings
 (setq-default cursor-in-non-selected-windows 'nil)
 (blink-cursor-mode 0)
 
-;;set emacs theme
+;; Set emacs theme
 (load-theme 'tango-dark)
+(set-background-color "#080808")
 ;; (load-theme 'sanityinc-tomorrow-eighties)
 ;; (load-theme 'sanityinc-solarized-dark t)
 ;; (load-theme 'monochrome-bright t)
@@ -40,16 +40,11 @@
 ;; (load-theme 'spacegray t)
 ;; (load-theme 'alect-dark t)
 
-;;get rid of clutter
+;; get rid of clutter
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 
-;;Add line numbers
-;; (global-hl-line-mode 1)
-;; (setq linum-format " %2i ")
-;; (add-hook 'prog-mode-hook 'linum-mode)
-;; (setq column-number-mode t)
-
 (provide 'cosmetic-settings)
+
 ;;; cosmetic-settings.el ends here
