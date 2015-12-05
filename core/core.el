@@ -20,11 +20,12 @@
       helm-autoresize-min-height           25
       helm-buffers-fuzzy-matching           t
       helm-recentf-fuzzy-match              t
-;;    helm-locate-fuzzy-match               t
       helm-ff-file-name-history-use-recentf t)
 
-;; Enable helm before enabling autoresize mode
-(helm-mode 1)
+;; Enable helm-projectile before enabling autoresize mode
+(projectile-global-mode)
+(setq projectile-completion-system 'helm)
+(helm-projectile-on)
 (helm-autoresize-mode 1)
 
 ;; Customize and enable powerline
@@ -37,7 +38,6 @@
 ;; Load allf modules
 (if (file-exists-p "~/.emacs.d/custom-modules.el")
     (load-file "~/.emacs.d/custom-modules.el"))
-
 
 ;; Remap helm specific keybindings
 (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to do persistent action

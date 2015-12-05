@@ -9,7 +9,7 @@
 
 ;; List the neccessary packages
 (setq package-list '(dash
-		     helm
+		     helm-projectile
 		     magit
 		     scala-mode2
 		     yaml-mode
