@@ -14,6 +14,7 @@
                       :font "Source Code Pro"
                       :height 110
                       :weight 'semibold
+		      :width 'normal
                       )
 )
 

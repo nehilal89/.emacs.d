@@ -1,6 +1,6 @@
 ;; utilities.el
 ;; Robert Blafford
-;; Description: Handly lisp functions
+;; Description: Handy lisp functions
 
 ;; Expects absolute path, returns true if path exists and ends in ".el"
 (defun is-el-script (abspath)
@@ -16,3 +16,6 @@
 (defun auto-balance-windows ()
   (if (not (active-minibuffer-window))
       (balance-windows)))
+
+(provide 'utilities)
+;; utilities.el ends here

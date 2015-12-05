@@ -8,7 +8,13 @@
 (require 'cl)
 
 ;; List the neccessary packages
-(setq package-list '(dash helm magit))
+(setq package-list '(dash
+		     helm
+		     magit
+		     scala-mode2
+		     yaml-mode
+		     powerline
+		     clang-format))
 
 ;; Add melpa and initialze package repositories
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
@@ -29,5 +35,11 @@
     (when (not (package-installed-p p))
       (package-install p))))
 
-;; Load the core file
-(load-file "~/.emacs.d/core/core.el")
+;; Configure load path
+(add-to-list 'load-path "~/.emacs.d/core/")
+(add-to-list 'load-path "~/.emacs.d/modules/")
+
+;; Load the core files
+(require 'core)
+
+;;; init.el ends here
