@@ -6,7 +6,7 @@
 (require 'helm-config)
 (require 'dash)
 (require 'utilities)
-(require 'powerline)
+(require 'telephone-line)
 
 ;; Enable syntax highlighting with dash functions
 (eval-after-load "dash" '(dash-enable-font-lock))
@@ -28,12 +28,8 @@
 (helm-projectile-on)
 (helm-autoresize-mode 1)
 
-;; Customize and enable powerline
-(powerline-default-theme)
-(setq powerline-arrow-shape 'rounded)
-(custom-set-faces
- '(mode-line ((t (:foreground "#FFFFFF" :background "#bdbdbd" :box nil))))
- '(mode-line-inactive ((t (:foreground "#f9f9f9" :background "#666666" :box nil)))))
+;; Customize and enable Telephone Line
+(telephone-line-mode 1)
 
 ;; Load allf modules
 (if (file-exists-p "~/.emacs.d/custom-modules.el")

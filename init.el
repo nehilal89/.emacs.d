@@ -13,7 +13,7 @@
 		     magit
 		     scala-mode2
 		     yaml-mode
-		     powerline
+		     telephone-line
 		     clang-format))
 
 ;; Add melpa and initialze package repositories
