@@ -35,11 +35,6 @@
 (if (file-exists-p "~/.emacs.d/custom-modules.el")
     (load-file "~/.emacs.d/custom-modules.el"))
 
-;; Remap helm specific keybindings
-(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to do persistent action
-(define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
-(define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
-
 ;; Install global key bindings
 (global-set-key (kbd "C-c h o") 'helm-occur)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
