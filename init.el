@@ -9,10 +9,10 @@
 
 ;; List the neccessary packages
 (setq package-list '(dash
+		     irony
 		     helm-projectile
 		     magit
 		     scala-mode2
-		     yaml-mode
 		     telephone-line
 		     clang-format))
 
