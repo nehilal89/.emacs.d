@@ -3,6 +3,7 @@
 ;; Description: Settings to use when scala is enabled
 
 (require 'scala-mode2)
+(require 'sbt-mode)
 (require 'whitespace)
 
 (add-hook 'scala-mode-hook '(lambda ()
@@ -36,7 +37,27 @@
    ;; clean-up whitespace at save
    (make-local-variable 'before-save-hook)
    (add-hook 'before-save-hook 'whitespace-cleanup)
+
+   ;; Enable key bindings for sbt-mode
+   (local-set-key (kbd "C-c v c") 'sbt-command)
+   ;; "C-c C-v" is sbt-clear when in the sbt-emacs REPL
   ))
+
+(add-hook 'sbt-mode-hook '(lambda ()
+  ;; compilation-skip-threshold tells the compilation minor-mode
+  ;; which type of compiler output can be skipped. 1 = skip info
+  ;; 2 = skip info and warnings.
+  (setq compilation-skip-threshold 1)
+
+  ;; Bind C-a to 'comint-bol when in sbt-mode. This will move the
+  ;; cursor to just after prompt.
+  (local-set-key (kbd "C-a") 'comint-bol)
+
+  ;; Bind M-RET to 'comint-accumulate. This will allow you to add
+  ;; more than one line to scala console prompt before sending it
+  ;; for interpretation. It will keep your command history cleaner.
+  (local-set-key (kbd "M-RET") 'comint-accumulate)
+))
 
 (provide 'scala-editing)
 
