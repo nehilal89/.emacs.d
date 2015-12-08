@@ -8,9 +8,7 @@
 (require 'cl)
 
 ;; List the neccessary packages
-(setq package-list '(dash irony helm-projectile magit
-		     scala-mode2 sbt-mode clang-format
-		     telephone-line))
+(setq package-list '(dash irony helm-projectile magit scala-mode2 sbt-mode clang-format	telephone-line thrift))
 
 ;; Add melpa and initialze package repositories
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
