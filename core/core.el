@@ -28,6 +28,10 @@
 (helm-projectile-on)
 (helm-autoresize-mode 1)
 
+(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
+(define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
+(define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
+
 ;; Customize and enable Telephone Line
 (telephone-line-mode 1)
 
@@ -46,7 +50,7 @@
 
 ;; Install custom hooks
 (add-hook 'window-configuration-change-hook 'auto-balance-windows)
-(add-hook 'window-setup-hook 'toggle-frame-fullscreen t) ;; Start fullscreen
+;;(add-hook 'window-setup-hook 'toggle-frame-fullscreen t) ;; Start fullscreen
 
 ;; Finally.. auto load personal emacs files if personal folder exists
 (if (file-accessible-directory-p "~/.emacs.d/personal")

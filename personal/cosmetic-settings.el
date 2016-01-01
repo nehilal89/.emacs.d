@@ -12,7 +12,7 @@
   (set-face-font 'default "Source Code Pro")
   (set-face-attribute 'default nil
                       :font "Source Code Pro"
-                      :height 110
+                      :height 130
                       :weight 'semibold
 		      :width 'normal
                       )
